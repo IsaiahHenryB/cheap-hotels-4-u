@@ -4,7 +4,22 @@
 // HOTEL #1 - Name is Hotel Paradise, there are 50 total rooms and there are 0 booked rooms
 // HOTEL #2 - Name is Quay Hotel, there are 75 total rooms and there are 0 booked rooms
 // HOTEL #3 - Name is Parker Place, there are 140 total rooms and there are 0 booked rooms
-
+const hotels = [
+{
+    name: "Hotel Paradise",
+    totalRooms: 50,
+    bookedRooms: 0,
+},
+{
+    name: "Quay Hotel",
+    totalRooms: 75,
+    bookedRooms: 0,
+},
+{
+    name: "Parker Place",
+    totalRooms: 140,
+    bookedRooms: 0,
+}]
 
 // STEP 2. We missed some additional information for each hotel but its okay! Add the following information below for each hotel object. Do not manipulate the code in Step 1.
 
@@ -12,56 +27,85 @@
 // -has a gym - NO
 // -has a pool - YES
 // -allows pets - NO
-
+hotels[0].hasGym= false
+hotels[0].hasPool= true
+hotels[0].allowPets= false
 
 // QUAY HOTEL
 // -has a gym - YES
 // -has a pool - YES
 // -allows pets - YES
+hotels[1].hasGym= true
+hotels[1].hasPool= true
+hotels[1].allowPets= true
 
 
 // PARKER PLACE
 // -has a gym - YES
 // -has a pool - YES
 // -allows pets - YES
+hotels[2].hasGym= true
+hotels[2].hasPool= true
+hotels[2].allowPets= true
 
 
 // STEP 3. Print the name of each hotel on a separate line
 console.log("-------------\n");
 console.log("3. Hotel Names");
+console.log(hotels[0].name)
+console.log(hotels[1].name)
+console.log(hotels[2].name)
 
 
 // STEP 4. Print the total number of rooms each hotel has
 console.log("-------------\n");
 console.log("4. Total Rooms");
-
+console.log(hotels[0].name + ": " +hotels[0].totalRooms)
+console.log(hotels[1].name + ": " +hotels[1].totalRooms)
+console.log(hotels[2].name + ": " +hotels[2].totalRooms)
 
 // STEP 5. Print the names of hotels that have gyms
 console.log("-------------\n");
 console.log("5. Hotels with Gyms");
-
+for (index of hotels){
+    if(index.hasGym === true){
+        console.log(index.name)
+    }
+}
 
 // STEP 6. Since building this new website, customers are starting to book rooms. Cheap Hotels 4 U has provided the number of rooms booked for each hotel. Update each object with the numbers of booked rooms.
 
 // HOTEL PARADISE = 6 booked rooms
-
+hotels[0].bookedRooms = 6
 
 // QUAY HOTEL = 15 booked rooms
-
+hotels[1].bookedRooms = 15
 
 // PARKER PLACE = 35 booked rooms
-
+hotels[2].bookedRooms = 35
 
 // STEP 7. Now print the number of rooms that are booked for each hotel to confirm that the system has been updated.
 console.log("-------------\n");
 console.log("7. Rooms Booked");
-
+for (let char of hotels){
+    console.log(char.name + ": " +char.bookedRooms)
+}
 
 // STEP 8. Calculate and print the number of rooms available per hotel
 console.log("-------------\n");
 console.log("8. Rooms Available");
-
+for(let char of hotels){
+    console.log(`${char.name} ${char.totalRooms - char.bookedRooms}`)
+}
 
 // STEP 9. The Marketing Team believes the new site has 500 rooms, but the Construction Team says less than 300. To figure out the actual total, print the total number of rooms by adding this across all 3 hotels.
 console.log("-------------\n");
 console.log("9. Total Rooms Across All Hotels");
+const addEmUp = ()=>{
+let num = 0
+for(index of hotels){
+    num += index.totalRooms
+}
+console.log(num)
+}
+addEmUp()
